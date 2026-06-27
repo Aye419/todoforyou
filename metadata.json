@@ -1,0 +1,6 @@
+{
+  "name": "To-Do List",
+  "description": "An intuitive and modern card-based to-do list with category management, task tracking, start/end/completed timing, and assignee management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

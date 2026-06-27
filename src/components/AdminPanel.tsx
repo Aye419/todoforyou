@@ -143,59 +143,59 @@ export default function AdminPanel({
     <div className="space-y-6 text-left">
       {/* Intro Stats Bar */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <div className="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm flex items-center gap-4 shadow-black/20">
+          <div className="w-12 h-12 rounded-2xl bg-indigo-950/40 text-indigo-400 flex items-center justify-center border border-indigo-900/30">
             <Users className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-2xs font-extrabold text-slate-400 uppercase tracking-widest">Active Members</p>
-            <p className="text-xl font-black text-slate-900 mt-0.5">{usersList.length}</p>
+            <p className="text-2xs font-extrabold text-slate-500 uppercase tracking-widest">Active Members</p>
+            <p className="text-xl font-black text-slate-100 mt-0.5">{usersList.length}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
+        <div className="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm flex items-center gap-4 shadow-black/20">
+          <div className="w-12 h-12 rounded-2xl bg-sky-950/40 text-sky-400 flex items-center justify-center border border-sky-900/30">
             <ListTodo className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-2xs font-extrabold text-slate-400 uppercase tracking-widest">Total Workspace Tasks</p>
-            <p className="text-xl font-black text-slate-900 mt-0.5">{totalTasksCount}</p>
+            <p className="text-2xs font-extrabold text-slate-500 uppercase tracking-widest">Total Workspace Tasks</p>
+            <p className="text-xl font-black text-slate-100 mt-0.5">{totalTasksCount}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+        <div className="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm flex items-center gap-4 shadow-black/20">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-950/40 text-emerald-400 flex items-center justify-center border border-emerald-900/30">
             <CheckSquare className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-2xs font-extrabold text-slate-400 uppercase tracking-widest">Completed Tasks</p>
-            <p className="text-xl font-black text-slate-900 mt-0.5">{completedTasksCount}</p>
+            <p className="text-2xs font-extrabold text-slate-500 uppercase tracking-widest">Completed Tasks</p>
+            <p className="text-xl font-black text-slate-100 mt-0.5">{completedTasksCount}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
+        <div className="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm flex items-center gap-4 shadow-black/20">
+          <div className="w-12 h-12 rounded-2xl bg-amber-950/40 text-amber-400 flex items-center justify-center border border-amber-900/30">
             <BarChart2 className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-2xs font-extrabold text-slate-400 uppercase tracking-widest">Global Completion Rate</p>
-            <p className="text-xl font-black text-slate-900 mt-0.5">{completionRate}%</p>
+            <p className="text-2xs font-extrabold text-slate-500 uppercase tracking-widest">Global Completion Rate</p>
+            <p className="text-xl font-black text-slate-100 mt-0.5">{completionRate}%</p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* User Roles & Access control table */}
-        <div className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden lg:col-span-2">
-          <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-sm overflow-hidden lg:col-span-2 shadow-black/20">
+          <div className="p-6 border-b border-slate-800 flex items-center justify-between">
             <div>
-              <h2 className="text-base font-extrabold text-slate-900 tracking-tight">Active Team Registry</h2>
+              <h2 className="text-base font-extrabold text-slate-100 tracking-tight">Active Team Registry</h2>
               <p className="text-xs text-slate-400 mt-0.5 font-medium">Control system privileges, manage access tiers, and audit contributions.</p>
             </div>
             {!isLocalMode && (
               <button
                 onClick={() => setRefreshTrigger(p => p + 1)}
-                className="p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer"
+                className="p-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
                 title="Refresh user list"
               >
                 <RefreshCw className={`w-4 h-4 ${loadingUsers ? 'animate-spin' : ''}`} />
@@ -204,41 +204,41 @@ export default function AdminPanel({
           </div>
 
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-slate-100 text-sm">
-              <thead className="bg-slate-50/50">
+            <table className="min-w-full divide-y divide-slate-800 text-sm">
+              <thead className="bg-slate-950/55">
                 <tr>
-                  <th scope="col" className="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">User Details</th>
-                  <th scope="col" className="px-6 py-3.5 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Role Claim</th>
-                  <th scope="col" className="px-6 py-3.5 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Contribution</th>
-                  <th scope="col" className="px-6 py-3.5 text-right text-xs font-bold text-slate-500 uppercase tracking-wider">Administration Actions</th>
+                  <th scope="col" className="px-6 py-3.5 text-left text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800/60">User Details</th>
+                  <th scope="col" className="px-6 py-3.5 text-center text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800/60">Role Claim</th>
+                  <th scope="col" className="px-6 py-3.5 text-center text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800/60">Contribution</th>
+                  <th scope="col" className="px-6 py-3.5 text-right text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800/60">Administration Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
+              <tbody className="divide-y divide-slate-800 bg-slate-900">
                 {usersList.map((user) => {
                   const isSelf = user.uid === currentUser.uid;
                   const uTasks = getTasksCountByUid(user.uid, user.email);
                   const uDone = getCompletedTasksCountByUid(user.uid, user.email);
 
                   return (
-                    <tr key={user.uid} className="hover:bg-slate-50/50 transition-colors">
+                    <tr key={user.uid} className="hover:bg-slate-800/45 transition-colors">
                       <td className="whitespace-nowrap px-6 py-4">
                         <div className="flex items-center gap-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white ${
-                            user.role === 'admin' ? 'bg-indigo-600' : 'bg-slate-400'
+                            user.role === 'admin' ? 'bg-indigo-600' : 'bg-slate-700 border border-slate-600/50'
                           }`}>
                             {user.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <p className="font-semibold text-slate-900 flex items-center gap-1.5">
+                            <p className="font-semibold text-slate-100 flex items-center gap-1.5">
                               {user.name}
                               {isSelf && (
-                                <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[9px] font-black uppercase tracking-wider">
+                                <span className="px-1.5 py-0.5 rounded bg-slate-850 border border-slate-800 text-slate-400 text-[9px] font-black uppercase tracking-wider">
                                   You
                                 </span>
                               )}
                             </p>
                             <p className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
-                              <Mail className="w-3 h-3 text-slate-300" />
+                              <Mail className="w-3 h-3 text-slate-500" />
                               {user.email}
                             </p>
                           </div>
@@ -246,20 +246,20 @@ export default function AdminPanel({
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-center">
                         {user.role === 'admin' ? (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/50">
-                            <ShieldCheck className="w-3 h-3 text-indigo-500" />
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-950/60 text-indigo-300 border border-indigo-900/40">
+                            <ShieldCheck className="w-3 h-3 text-indigo-400" />
                             Administrator
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-slate-50 text-slate-600 border border-slate-200/50">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-slate-950 text-slate-400 border border-slate-800/80">
                             Regular User
                           </span>
                         )}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-center">
                         <div className="inline-flex flex-col items-center">
-                          <p className="font-bold text-slate-800">{uTasks} tasks</p>
-                          <p className="text-[10px] text-slate-400 font-medium">({uDone} completed)</p>
+                          <p className="font-bold text-slate-200">{uTasks} tasks</p>
+                          <p className="text-[10px] text-slate-500 font-medium">({uDone} completed)</p>
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-right">
@@ -269,15 +269,15 @@ export default function AdminPanel({
                             disabled={isSelf}
                             className={`p-1.5 rounded-lg transition-all flex items-center gap-1 ${
                               isSelf 
-                                ? 'text-slate-300 cursor-not-allowed' 
-                                : 'text-slate-500 hover:text-indigo-600 hover:bg-slate-100 cursor-pointer'
+                                ? 'text-slate-600 cursor-not-allowed' 
+                                : 'text-slate-400 hover:text-indigo-400 hover:bg-slate-800 cursor-pointer'
                             }`}
                             title={user.role === 'admin' ? "Demote to User" : "Promote to Admin"}
                           >
                             {user.role === 'admin' ? (
-                              <ToggleRight className="w-5 h-5 text-indigo-600" />
+                              <ToggleRight className="w-5 h-5 text-indigo-500" />
                             ) : (
-                              <ToggleLeft className="w-5 h-5 text-slate-400" />
+                              <ToggleLeft className="w-5 h-5 text-slate-500" />
                             )}
                           </button>
                           
@@ -286,8 +286,8 @@ export default function AdminPanel({
                             disabled={isSelf}
                             className={`p-1.5 rounded-lg transition-all ${
                               isSelf 
-                                ? 'text-slate-300 cursor-not-allowed' 
-                                : 'text-slate-400 hover:text-rose-600 hover:bg-rose-50 cursor-pointer'
+                                ? 'text-slate-600 cursor-not-allowed' 
+                                : 'text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 cursor-pointer'
                             }`}
                             title="Remove User Record"
                           >
@@ -305,15 +305,15 @@ export default function AdminPanel({
 
         {/* Global Analytics Overview Cards */}
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 space-y-4 text-left">
+          <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-sm p-6 space-y-4 text-left shadow-black/20">
             <div>
-              <h2 className="text-base font-extrabold text-slate-900 tracking-tight">Access Permissions Matrix</h2>
+              <h2 className="text-base font-extrabold text-slate-100 tracking-tight">Access Permissions Matrix</h2>
               <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
                 As an <strong>Administrator</strong>, you have high-level privileges:
               </p>
             </div>
             
-            <ul className="space-y-2 text-xs text-slate-600 font-medium">
+            <ul className="space-y-2 text-xs text-slate-400 font-medium">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 mt-1.5" />
                 <span>You can view and inspect task cards submitted by <strong>any registered user</strong>.</span>
@@ -329,41 +329,41 @@ export default function AdminPanel({
             </ul>
 
             <div className="pt-2">
-              <div className="bg-indigo-50/50 rounded-2xl p-4 border border-indigo-100/30 text-xs">
-                <p className="font-bold text-indigo-950 flex items-center gap-1">
-                  <Award className="w-4 h-4 text-indigo-600" />
+              <div className="bg-indigo-950/20 rounded-2xl p-4 border border-indigo-900/20 text-xs">
+                <p className="font-bold text-indigo-200 flex items-center gap-1">
+                  <Award className="w-4 h-4 text-indigo-400" />
                   Testing Guide:
                 </p>
-                <p className="text-indigo-700 leading-relaxed mt-1 font-medium">
+                <p className="text-indigo-300 leading-relaxed mt-1 font-medium">
                   Register a second user with the <strong>Regular User</strong> role on the login screen to see how their view filters strictly to only their tasks! Then, sign back in as an <strong>Admin</strong> to watch the tasks sync globally.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 text-left space-y-4">
-            <h2 className="text-base font-extrabold text-slate-900 tracking-tight">Workflow Load</h2>
+          <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-sm p-6 text-left space-y-4 shadow-black/20">
+            <h2 className="text-base font-extrabold text-slate-100 tracking-tight">Workflow Load</h2>
             
             <div className="space-y-3.5">
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-slate-600 mb-1">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-400 mb-1">
                   <span>To-Do Backlog</span>
                   <span>{todoTasksCount} / {totalTasksCount}</span>
                 </div>
-                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-slate-400 transition-all duration-300"
+                    className="h-full bg-slate-600 transition-all duration-300"
                     style={{ width: `${totalTasksCount > 0 ? (todoTasksCount / totalTasksCount) * 100 : 0}%` }}
                   />
                 </div>
               </div>
 
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-slate-600 mb-1">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-400 mb-1">
                   <span>In Progress (Active Cycle)</span>
                   <span>{progressTasksCount} / {totalTasksCount}</span>
                 </div>
-                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-indigo-500 transition-all duration-300"
                     style={{ width: `${totalTasksCount > 0 ? (progressTasksCount / totalTasksCount) * 100 : 0}%` }}
@@ -372,11 +372,11 @@ export default function AdminPanel({
               </div>
 
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-slate-600 mb-1">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-400 mb-1">
                   <span>Completed & Closed</span>
                   <span>{completedTasksCount} / {totalTasksCount}</span>
                 </div>
-                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-emerald-500 transition-all duration-300"
                     style={{ width: `${totalTasksCount > 0 ? (completedTasksCount / totalTasksCount) * 100 : 0}%` }}

@@ -26,28 +26,28 @@ export default function BoardView({
       id: 'todo',
       label: 'To Do',
       icon: ListTodo,
-      colorClass: 'text-slate-800 bg-slate-100',
-      borderClass: 'border-slate-200/80',
-      bgClass: 'bg-slate-50/50',
-      iconColor: 'text-slate-500',
+      colorClass: 'text-slate-200 bg-slate-800',
+      borderClass: 'border-slate-800',
+      bgClass: 'bg-slate-900/40',
+      iconColor: 'text-slate-400',
     },
     {
       id: 'in_progress',
       label: 'In Progress',
       icon: Play,
-      colorClass: 'text-sky-800 bg-sky-100',
-      borderClass: 'border-sky-100',
-      bgClass: 'bg-sky-50/20',
-      iconColor: 'text-sky-500',
+      colorClass: 'text-sky-300 bg-sky-950/60',
+      borderClass: 'border-sky-900/40',
+      bgClass: 'bg-sky-950/20',
+      iconColor: 'text-sky-400',
     },
     {
       id: 'completed',
       label: 'Completed',
       icon: CheckCircle2,
-      colorClass: 'text-emerald-800 bg-emerald-100',
-      borderClass: 'border-emerald-100',
-      bgClass: 'bg-emerald-50/20',
-      iconColor: 'text-emerald-500',
+      colorClass: 'text-emerald-300 bg-emerald-950/60',
+      borderClass: 'border-emerald-900/40',
+      bgClass: 'bg-emerald-950/20',
+      iconColor: 'text-emerald-400',
     },
   ];
 
@@ -61,15 +61,15 @@ export default function BoardView({
           <div
             key={column.id}
             id={`board-column-${column.id}`}
-            className="flex flex-col max-h-[80vh] rounded-3xl border border-slate-100 bg-white p-6 shadow-sm"
+            className="flex flex-col max-h-[80vh] rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-sm shadow-black/20"
           >
             {/* Column Header */}
-            <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 shrink-0">
+            <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-800 shrink-0">
               <div className="flex items-center gap-2">
-                <div className={`p-1.5 rounded-xl bg-slate-50 border border-slate-100 ${column.iconColor}`}>
+                <div className={`p-1.5 rounded-xl bg-slate-950 border border-slate-800/80 ${column.iconColor}`}>
                   <Icon className="w-4 h-4" />
                 </div>
-                <h3 className="font-bold text-slate-800 tracking-tight text-sm">
+                <h3 className="font-bold text-slate-200 tracking-tight text-sm">
                   {column.label}
                 </h3>
                 <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${column.colorClass}`}>
@@ -81,7 +81,7 @@ export default function BoardView({
               <button
                 id={`btn-column-add-${column.id}`}
                 onClick={() => onAddTaskWithStatus(column.id)}
-                className="p-1 text-slate-500 hover:text-indigo-600 hover:bg-slate-50 rounded-xl transition-colors cursor-pointer"
+                className="p-1 text-slate-400 hover:text-indigo-400 hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
                 title={`Add task to ${column.label}`}
               >
                 <Plus className="w-4 h-4" />
@@ -91,12 +91,12 @@ export default function BoardView({
             {/* Column Body / Cards Stack */}
             <div className="flex-1 overflow-y-auto space-y-4 pb-4 pr-1 scrollbar-thin">
               {columnTasks.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-12 px-4 border-2 border-dashed border-slate-100 rounded-3xl text-center bg-slate-50/50">
+                <div className="flex flex-col items-center justify-center py-12 px-4 border-2 border-dashed border-slate-800 rounded-3xl text-center bg-slate-950/30">
                   <p className="text-xs font-semibold text-slate-400">No tasks in this stage</p>
-                  <p className="text-3xs text-slate-400 mt-1">Ready to create or drag items</p>
+                  <p className="text-3xs text-slate-500 mt-1">Ready to create or drag items</p>
                   <button
                     onClick={() => onAddTaskWithStatus(column.id)}
-                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-indigo-600 hover:text-indigo-700 hover:underline cursor-pointer"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     Add Task
@@ -122,9 +122,9 @@ export default function BoardView({
               <button
                 id={`btn-bottom-add-${column.id}`}
                 onClick={() => onAddTaskWithStatus(column.id)}
-                className="mt-3 w-full py-2.5 bg-slate-50 hover:bg-slate-100/80 border border-slate-100 rounded-xl text-xs font-bold text-slate-600 hover:text-indigo-600 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                className="mt-3 w-full py-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:text-indigo-400 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                <Plus className="w-4 h-4 text-indigo-500" />
+                <Plus className="w-4 h-4 text-indigo-400" />
                 Add New Task
               </button>
             )}

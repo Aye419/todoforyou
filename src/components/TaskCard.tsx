@@ -27,9 +27,9 @@ export default function TaskCard({
 
   // Status badge details
   const priorityColors = {
-    low: { bg: 'bg-emerald-50 text-emerald-700 border-emerald-100', dot: 'bg-emerald-500' },
-    medium: { bg: 'bg-amber-50 text-amber-700 border-amber-100', dot: 'bg-amber-500' },
-    high: { bg: 'bg-rose-50 text-rose-700 border-rose-100', dot: 'bg-rose-500' },
+    low: { bg: 'bg-emerald-950/40 text-emerald-300 border-emerald-900/40', dot: 'bg-emerald-400' },
+    medium: { bg: 'bg-amber-950/40 text-amber-300 border-amber-900/40', dot: 'bg-amber-400' },
+    high: { bg: 'bg-rose-950/40 text-rose-300 border-rose-900/40', dot: 'bg-rose-400' },
   };
 
   const currentPriority = priorityColors[task.priority];
@@ -52,8 +52,8 @@ export default function TaskCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.2 }}
-      className={`relative group bg-white rounded-3xl border p-6 flex flex-col justify-between hover:shadow-md hover:border-slate-200/80 transition-all duration-200 ${
-        isOverdue ? 'border-rose-200 ring-1 ring-rose-100' : 'border-slate-100'
+      className={`relative group bg-slate-950 rounded-3xl border p-6 flex flex-col justify-between hover:shadow-lg hover:border-slate-700 transition-all duration-200 ${
+        isOverdue ? 'border-rose-900 ring-1 ring-rose-950/80' : 'border-slate-800'
       }`}
     >
       {/* Header tags */}
@@ -82,7 +82,7 @@ export default function TaskCard({
 
             {/* Overdue alert */}
             {isOverdue && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 border border-rose-200 animate-pulse">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-950/50 text-rose-300 border border-rose-900/50 animate-pulse">
                 <AlertTriangle className="w-3 h-3" />
                 Overdue
               </span>
@@ -94,7 +94,7 @@ export default function TaskCard({
             <button
               id={`btn-edit-${task.id}`}
               onClick={() => onEdit(task)}
-              className="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition-colors"
+              className="p-1 text-slate-500 hover:text-slate-300 hover:bg-slate-900 rounded-md transition-colors"
               title="Edit Task"
             >
               <Edit2 className="w-4 h-4" />
@@ -102,7 +102,7 @@ export default function TaskCard({
             <button
               id={`btn-delete-${task.id}`}
               onClick={() => onDelete(task.id)}
-              className="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors"
+              className="p-1 text-slate-500 hover:text-rose-400 hover:bg-rose-950/40 rounded-md transition-colors"
               title="Delete Task"
             >
               <Trash2 className="w-4 h-4" />
@@ -111,41 +111,41 @@ export default function TaskCard({
         </div>
 
         {/* Task Title */}
-        <h3 className={`text-base font-bold text-slate-900 mb-1 tracking-tight group-hover:text-indigo-600 transition-colors ${task.status === 'completed' ? 'line-through text-slate-400' : ''}`}>
+        <h3 className={`text-base font-bold text-slate-100 mb-1 tracking-tight group-hover:text-indigo-400 transition-colors ${task.status === 'completed' ? 'line-through text-slate-500' : ''}`}>
           {task.title}
         </h3>
 
         {task.ownerEmail && (
-          <div className="text-[10px] text-slate-400 mb-2 flex items-center gap-1 font-medium bg-slate-50 border border-slate-100/50 rounded-md px-1.5 py-0.5 w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-            Created by: <span className="font-semibold text-slate-600">{task.ownerEmail}</span>
+          <div className="text-[10px] text-slate-500 mb-2 flex items-center gap-1 font-medium bg-slate-900/50 border border-slate-800 rounded-md px-1.5 py-0.5 w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+            Created by: <span className="font-semibold text-slate-400">{task.ownerEmail}</span>
           </div>
         )}
 
         {/* Task Description */}
-        <p className={`text-sm text-slate-600 mb-4 line-clamp-2 leading-relaxed ${task.status === 'completed' ? 'text-slate-400' : ''}`}>
+        <p className={`text-sm text-slate-400 mb-4 line-clamp-2 leading-relaxed ${task.status === 'completed' ? 'text-slate-500' : ''}`}>
           {task.description || 'No description provided.'}
         </p>
       </div>
 
       {/* Middle section: Timing tracker information */}
-      <div className="border-t border-dashed border-slate-100 pt-3.5 pb-4 space-y-2">
+      <div className="border-t border-dashed border-slate-800 pt-3.5 pb-4 space-y-2">
         {/* Planned timeline */}
-        <div className="flex items-center justify-between text-xs text-slate-500">
+        <div className="flex items-center justify-between text-xs text-slate-400">
           <span className="flex items-center gap-1.5 font-medium">
-            <Calendar className="w-3.5 h-3.5 text-slate-400" />
+            <Calendar className="w-3.5 h-3.5 text-slate-500" />
             Planned:
           </span>
-          <span className="font-mono text-slate-700">
+          <span className="font-mono text-slate-300">
             {formatDateTime(task.plannedStart)} - {formatDateTime(task.plannedEnd)}
           </span>
         </div>
 
         {/* Dynamic status timing display */}
         {task.status === 'in_progress' && task.actualStart && (
-          <div className="flex items-center justify-between text-xs bg-sky-50 text-sky-800 rounded-lg p-2 border border-sky-100">
+          <div className="flex items-center justify-between text-xs bg-sky-950/30 text-sky-300 rounded-lg p-2 border border-sky-900/40">
             <span className="flex items-center gap-1.5 font-medium animate-pulse">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
               Started:
             </span>
             <span className="font-mono font-semibold">
@@ -155,10 +155,10 @@ export default function TaskCard({
         )}
 
         {task.status === 'completed' && task.actualStart && task.completedAt && (
-          <div className="flex flex-col gap-1 bg-emerald-50 text-emerald-800 rounded-lg p-2 border border-emerald-100">
+          <div className="flex flex-col gap-1 bg-emerald-950/30 text-emerald-300 rounded-lg p-2 border border-emerald-900/40">
             <div className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 font-medium">
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
                 Completed:
               </span>
               <span className="font-mono font-semibold">
@@ -173,9 +173,9 @@ export default function TaskCard({
         )}
 
         {task.status === 'completed' && !task.actualStart && task.completedAt && (
-          <div className="flex items-center justify-between text-xs bg-emerald-50 text-emerald-800 rounded-lg p-2 border border-emerald-100">
+          <div className="flex items-center justify-between text-xs bg-emerald-950/30 text-emerald-300 rounded-lg p-2 border border-emerald-900/40">
             <span className="flex items-center gap-1.5 font-medium">
-              <Check className="w-3.5 h-3.5 text-emerald-600" />
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
               Completed:
             </span>
             <span className="font-mono font-semibold">
@@ -186,7 +186,7 @@ export default function TaskCard({
       </div>
 
       {/* Footer section: Assignee + Status Actions */}
-      <div className="border-t border-slate-100 pt-3.5 flex items-center justify-between gap-4">
+      <div className="border-t border-slate-800 pt-3.5 flex items-center justify-between gap-4">
         {/* Assignee Avatar */}
         <div className="flex items-center gap-2 overflow-hidden">
           {assignee ? (
@@ -198,15 +198,15 @@ export default function TaskCard({
               {getInitials(assignee.name)}
             </div>
           ) : (
-            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border border-slate-200">
+            <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-500 shrink-0 border border-slate-800">
               <User className="w-4 h-4" />
             </div>
           )}
           <div className="text-left leading-tight min-w-0">
-            <p className="text-xs font-medium text-slate-800 truncate" title={assignee?.name || 'Unassigned'}>
+            <p className="text-xs font-medium text-slate-200 truncate" title={assignee?.name || 'Unassigned'}>
               {assignee?.name || 'Unassigned'}
             </p>
-            <p className="text-3xs text-slate-500 truncate">
+            <p className="text-3xs text-slate-400 truncate">
               {assignee?.email || 'No Email'}
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function TaskCard({
             <button
               id={`btn-start-${task.id}`}
               onClick={() => onStatusChange(task.id, 'in_progress')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-indigo-600 active:bg-indigo-700 rounded-xl shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-slate-800 hover:bg-indigo-600 active:bg-indigo-700 rounded-xl shadow-xs transition-colors cursor-pointer"
             >
               <Play className="w-3 h-3 fill-current" />
               Start Work
@@ -240,7 +240,7 @@ export default function TaskCard({
             <button
               id={`btn-reopen-${task.id}`}
               onClick={() => onStatusChange(task.id, 'todo')}
-              className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-900 rounded-xl transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" />
               Re-open

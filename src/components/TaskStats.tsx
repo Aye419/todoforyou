@@ -75,76 +75,76 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
       {/* Metrics Row */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Total Tasks Card */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Tasks</span>
-            <div className="p-1.5 rounded-xl bg-slate-50 text-slate-600 border border-slate-100">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Tasks</span>
+            <div className="p-1.5 rounded-xl bg-slate-950 text-slate-300 border border-slate-800/80">
               <ListTodo className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-black text-slate-900 leading-none mt-2">{total}</div>
-          <p className="text-3xs text-slate-400 mt-2 font-medium">across all categories</p>
+          <div className="text-3xl font-black text-slate-100 leading-none mt-2">{total}</div>
+          <p className="text-3xs text-slate-500 mt-2 font-medium">across all categories</p>
         </div>
 
         {/* In Progress Card */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">In Progress</span>
-            <div className="p-1.5 rounded-xl bg-sky-50 text-sky-600 border border-sky-100">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">In Progress</span>
+            <div className="p-1.5 rounded-xl bg-sky-950/40 text-sky-400 border border-sky-900/30">
               <Play className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-black text-sky-600 leading-none mt-2">{inProgress}</div>
+          <div className="text-3xl font-black text-sky-400 leading-none mt-2">{inProgress}</div>
           <p className="text-3xs text-sky-500 mt-2 font-medium">currently active</p>
         </div>
 
         {/* Completed Card */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Completed</span>
-            <div className="p-1.5 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Completed</span>
+            <div className="p-1.5 rounded-xl bg-emerald-950/40 text-emerald-400 border border-emerald-900/30">
               <CheckCircle2 className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-black text-emerald-600 leading-none mt-2">{completed}</div>
+          <div className="text-3xl font-black text-emerald-400 leading-none mt-2">{completed}</div>
           <p className="text-3xs text-emerald-500 mt-2 font-medium">{completionRate}% total completion rate</p>
         </div>
 
         {/* Overdue Card */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Overdue</span>
-            <div className="p-1.5 rounded-xl bg-rose-50 text-rose-600 border border-rose-100">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Overdue</span>
+            <div className="p-1.5 rounded-xl bg-rose-950/40 text-rose-400 border border-rose-900/30">
               <AlertTriangle className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-black text-rose-600 leading-none mt-2">{overdue}</div>
+          <div className="text-3xl font-black text-rose-400 leading-none mt-2">{overdue}</div>
           <p className="text-3xs text-rose-500 mt-2 font-medium">past target deadlines</p>
         </div>
 
         {/* Average Time Spent Card */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm col-span-2 lg:col-span-1">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm col-span-2 lg:col-span-1 shadow-black/20">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Avg. Cycle Time</span>
-            <div className="p-1.5 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Avg. Cycle Time</span>
+            <div className="p-1.5 rounded-xl bg-indigo-950/40 text-indigo-400 border border-indigo-900/30">
               <Clock className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-black text-slate-900 leading-none mt-2">{averageCompletionTimeStr}</div>
-          <p className="text-3xs text-indigo-500 mt-2 font-medium">from start to complete</p>
+          <div className="text-3xl font-black text-slate-100 leading-none mt-2">{averageCompletionTimeStr}</div>
+          <p className="text-3xs text-indigo-400 mt-2 font-medium">from start to complete</p>
         </div>
       </div>
 
       {/* Main Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left: Category Distribution Custom Chart */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
-          <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
+          <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
             <div>
-              <h3 className="text-sm font-extrabold text-slate-900 tracking-tight">Task Allocation by Category</h3>
-              <p className="text-3xs text-slate-400 mt-0.5">Total volume and completion percentage per category</p>
+              <h3 className="text-sm font-extrabold text-slate-100 tracking-tight">Task Allocation by Category</h3>
+              <p className="text-3xs text-slate-500 mt-0.5">Total volume and completion percentage per category</p>
             </div>
-            <TrendingUp className="w-4 h-4 text-slate-400" />
+            <TrendingUp className="w-4 h-4 text-slate-500" />
           </div>
 
           <div className="space-y-4">
@@ -153,17 +153,17 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
               return (
                 <div key={cat.id} className="space-y-1">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="flex items-center gap-2 font-semibold text-slate-700">
+                    <span className="flex items-center gap-2 font-semibold text-slate-200">
                       <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
                       {cat.name}
                     </span>
-                    <span className="font-mono font-bold text-slate-600">
+                    <span className="font-mono font-bold text-slate-300">
                       {cat.count} {cat.count === 1 ? 'task' : 'tasks'}{' '}
-                      <span className="text-3xs font-medium text-slate-400">({cat.percentage}% done)</span>
+                      <span className="text-3xs font-medium text-slate-500">({cat.percentage}% done)</span>
                     </span>
                   </div>
                   {/* Custom Bar Chart bar */}
-                  <div className="h-6 w-full bg-slate-50 border border-slate-100 rounded-lg overflow-hidden relative flex items-center">
+                  <div className="h-6 w-full bg-slate-950 border border-slate-800 rounded-lg overflow-hidden relative flex items-center">
                     <div
                       className="h-full rounded-l-lg transition-all duration-500"
                       style={{
@@ -172,7 +172,7 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
                       }}
                     />
                     {/* Tiny stats overlay */}
-                    <div className="absolute right-2 text-2xs font-mono text-slate-400">
+                    <div className="absolute right-2 text-2xs font-mono text-slate-500">
                       {cat.completedCount} / {cat.count} complete
                     </div>
                   </div>
@@ -180,19 +180,19 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
               );
             })}
             {categories.length === 0 && (
-              <p className="text-xs text-slate-400 text-center py-6">No category data available.</p>
+              <p className="text-xs text-slate-500 text-center py-6">No category data available.</p>
             )}
           </div>
         </div>
 
         {/* Right: Team Productivity & Assignment */}
-        <div className="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
-          <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+        <div className="bg-slate-900 rounded-3xl border border-slate-800 p-6 shadow-sm shadow-black/20">
+          <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
             <div>
-              <h3 className="text-sm font-extrabold text-slate-900 tracking-tight">Task Assignment by Team Member</h3>
-              <p className="text-3xs text-slate-400 mt-0.5">Load distribution and focus across individuals</p>
+              <h3 className="text-sm font-extrabold text-slate-100 tracking-tight">Task Assignment by Team Member</h3>
+              <p className="text-3xs text-slate-500 mt-0.5">Load distribution and focus across individuals</p>
             </div>
-            <TrendingUp className="w-4 h-4 text-slate-400" />
+            <TrendingUp className="w-4 h-4 text-slate-500" />
           </div>
 
           <div className="space-y-4">
@@ -210,15 +210,15 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between text-xs mb-1">
-                      <span className="font-bold text-slate-800 truncate">{ass.name}</span>
-                      <span className="font-mono text-slate-600 font-semibold">
+                      <span className="font-bold text-slate-200 truncate">{ass.name}</span>
+                      <span className="font-mono text-slate-300 font-semibold">
                         {ass.count} {ass.count === 1 ? 'task' : 'tasks'}{' '}
-                        <span className="text-3xs text-slate-400">({ass.completedCount} done)</span>
+                        <span className="text-3xs text-slate-500">({ass.completedCount} done)</span>
                       </span>
                     </div>
 
                     {/* Progress Bar for individual completion rate */}
-                    <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-slate-950 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-emerald-500 rounded-full transition-all duration-500"
                         style={{ width: `${ass.percentage}%` }}
@@ -229,7 +229,7 @@ export default function TaskStats({ tasks, categories, assignees }: TaskStatsPro
               );
             })}
             {assignees.length === 0 && (
-              <p className="text-xs text-slate-400 text-center py-6">No assignee data available.</p>
+              <p className="text-xs text-slate-500 text-center py-6">No assignee data available.</p>
             )}
           </div>
         </div>

@@ -6,6 +6,12 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+/* Base styles to enforce deep dark mode on everything by default */
+html, body {
+  background-color: #0b0f19; /* Deep Slate-950 */
+  color: #f1f5f9; /* Slate-100 */
+}
+
 /* Custom scrollbar behaviors for modern boards */
 .scrollbar-thin::-webkit-scrollbar {
   width: 5px;
@@ -17,11 +23,11 @@
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #334155;
   border-radius: 4px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #475569;
 }
 

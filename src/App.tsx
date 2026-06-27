@@ -540,10 +540,10 @@ export default function App() {
 
   if (authLoading && !isLocalMode) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center font-sans">
         <div className="text-center space-y-4">
-          <RefreshCw className="w-8 h-8 animate-spin text-indigo-600 mx-auto" />
-          <p className="text-sm font-bold text-slate-600 animate-pulse">Loading Workspace Environment...</p>
+          <RefreshCw className="w-8 h-8 animate-spin text-indigo-500 mx-auto" />
+          <p className="text-sm font-bold text-slate-400 animate-pulse">Loading Workspace Environment...</p>
         </div>
       </div>
     );
@@ -566,9 +566,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
       {/* Top Header Banner */}
-      <header className="bg-white border-b border-slate-200/80 sticky top-0 z-40 shadow-xs px-6 py-4">
+      <header className="bg-slate-950 border-b border-slate-900 sticky top-0 z-40 shadow-xs px-6 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           
           {/* Brand/Title */}
@@ -577,25 +577,25 @@ export default function App() {
               <ListTodo className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
-              <h1 className="text-xl font-extrabold text-slate-900 tracking-tight leading-none flex flex-wrap items-center gap-2">
+              <h1 className="text-xl font-extrabold text-slate-100 tracking-tight leading-none flex flex-wrap items-center gap-2">
                 Team Planner & Board
                 {isLocalMode ? (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200/50 shadow-3xs">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-indigo-950/40 text-indigo-300 border border-indigo-900/30 shadow-3xs">
                     <WifiOff className="w-2.5 h-2.5" />
                     Local Sandbox
                   </span>
                 ) : isSyncing ? (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-50 text-amber-700 border border-amber-200/50 animate-pulse">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-950/40 text-amber-300 border border-amber-900/30 animate-pulse">
                     <RefreshCw className="w-2.5 h-2.5 animate-spin" />
                     Syncing...
                   </span>
                 ) : isFirebaseConnected ? (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200/50 shadow-3xs">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-950/40 text-emerald-300 border border-emerald-900/30 shadow-3xs">
                     <Database className="w-2.5 h-2.5" />
                     Connected
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-50 text-rose-700 border border-rose-200/50">
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-950/40 text-rose-300 border border-rose-900/30">
                     <CloudLightning className="w-2.5 h-2.5" />
                     Not Configured
                   </span>
@@ -608,15 +608,15 @@ export default function App() {
           </div>
 
           {/* Real-time UTC / Time tracker panel */}
-          <div className="flex items-center gap-4 bg-slate-50 border border-slate-200/60 p-2.5 rounded-xl self-start md:self-auto shadow-2xs font-mono">
-            <div className="p-1.5 rounded-lg bg-white shadow-xs text-slate-500">
+          <div className="flex items-center gap-4 bg-slate-900 border border-slate-850 p-2.5 rounded-xl self-start md:self-auto shadow-2xs font-mono">
+            <div className="p-1.5 rounded-lg bg-slate-950 shadow-xs text-slate-400">
               <Clock className="w-4 h-4" />
             </div>
             <div className="text-right leading-none">
-              <p className="text-xs font-bold text-slate-900">
+              <p className="text-xs font-bold text-slate-100">
                 {currentTime.toLocaleTimeString('en-US', { hour12: true })}
               </p>
-              <p className="text-3xs text-slate-400 font-semibold mt-0.5">
+              <p className="text-3xs text-slate-550 font-semibold mt-0.5">
                 {currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
@@ -624,45 +624,45 @@ export default function App() {
 
           {/* User Profile Info Card & Log Out */}
           {currentUserProfile ? (
-            <div className="flex items-center gap-3 bg-indigo-50/50 border border-indigo-100/50 p-2 rounded-xl self-start md:self-auto shadow-2xs font-sans">
+            <div className="flex items-center gap-3 bg-indigo-950/20 border border-indigo-900/30 p-2 rounded-xl self-start md:self-auto shadow-2xs font-sans">
               <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-inner">
                 {currentUserProfile.name.charAt(0).toUpperCase()}
               </div>
               <div className="text-left leading-tight min-w-0">
-                <p className="text-xs font-bold text-slate-900 flex items-center gap-1.5 truncate">
+                <p className="text-xs font-bold text-slate-200 flex items-center gap-1.5 truncate">
                   {currentUserProfile.name}
                   {currentUserProfile.role === 'admin' ? (
-                    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700 text-[8px] font-black uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-indigo-950/50 text-indigo-300 text-[8px] font-black uppercase tracking-wider">
                       <Shield className="w-2 h-2" />
                       Admin
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[8px] font-bold uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-slate-950 text-slate-400 text-[8px] font-bold uppercase tracking-wider border border-slate-800/80">
                       User
                     </span>
                   )}
                 </p>
-                <p className="text-[10px] text-slate-500 truncate max-w-[120px] md:max-w-[150px]">
+                <p className="text-[10px] text-slate-400 truncate max-w-[120px] md:max-w-[150px]">
                   {currentUserProfile.email}
                 </p>
               </div>
               <button
                 id="btn-header-signout"
                 onClick={handleSignOut}
-                className="ml-2 p-2 bg-white hover:bg-rose-50 border border-slate-200/60 hover:border-rose-200 text-slate-400 hover:text-rose-600 rounded-xl transition-all shadow-3xs cursor-pointer"
+                className="ml-2 p-2 bg-slate-900 hover:bg-rose-950/40 border border-slate-800 hover:border-rose-900 text-slate-400 hover:text-rose-300 rounded-xl transition-all shadow-3xs cursor-pointer"
                 title="Sign Out Workspace"
               >
                 <LogOut className="w-3.5 h-3.5" />
               </button>
             </div>
           ) : isLocalMode ? (
-            <div className="flex items-center gap-3 bg-indigo-50/50 border border-indigo-100/50 p-2 rounded-xl self-start md:self-auto shadow-2xs font-sans">
+            <div className="flex items-center gap-3 bg-indigo-950/20 border border-indigo-900/30 p-2 rounded-xl self-start md:self-auto shadow-2xs font-sans">
               <div className="w-9 h-9 rounded-xl bg-indigo-500 text-white flex items-center justify-center font-bold text-xs">
                 G
               </div>
               <div className="text-left leading-tight">
-                <p className="text-xs font-bold text-slate-900">Sandbox Guest</p>
-                <p className="text-[10px] text-slate-400">Offline Sandbox</p>
+                <p className="text-xs font-bold text-slate-200">Sandbox Guest</p>
+                <p className="text-[10px] text-slate-450">Offline Sandbox</p>
               </div>
               <button
                 onClick={() => {
@@ -682,15 +682,15 @@ export default function App() {
 
       {/* Firebase Sync/Resilience Notice Banner */}
       {firebaseError && !isLocalMode && (
-        <div className="bg-amber-50 border-b border-amber-200/60 py-3 px-6 shadow-2xs">
+        <div className="bg-amber-950/40 border-b border-amber-900/30 py-3 px-6 shadow-2xs">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
-            <div className="flex items-start md:items-center gap-2.5 text-amber-800">
-              <AlertTriangle className="w-4.5 h-4.5 text-amber-600 shrink-0 mt-0.5 md:mt-0" />
+            <div className="flex items-start md:items-center gap-2.5 text-amber-300">
+              <AlertTriangle className="w-4.5 h-4.5 text-amber-500 shrink-0 mt-0.5 md:mt-0" />
               <div>
-                <p className="font-bold text-amber-950">Firebase Configuration Connection Issue:</p>
-                <p className="text-amber-700 font-medium mt-0.5">
-                  Firestore returned: <code className="font-mono bg-amber-100/60 px-1 py-0.5 rounded text-amber-900">{firebaseError}</code>. 
-                  This is usually because <strong className="text-amber-950">Anonymous Authentication</strong> is not yet enabled in the Firebase Console (under Build &rarr; Authentication &rarr; Sign-in method), or your Firestore rules are deploying.
+                <p className="font-bold text-amber-100">Firebase Configuration Connection Issue:</p>
+                <p className="text-amber-400 font-medium mt-0.5">
+                  Firestore returned: <code className="font-mono bg-amber-950 px-1 py-0.5 rounded text-amber-300 border border-amber-900/40">{firebaseError}</code>. 
+                  This is usually because <strong className="text-amber-100">Anonymous Authentication</strong> is not yet enabled in the Firebase Console (under Build &rarr; Authentication &rarr; Sign-in method), or your Firestore rules are deploying.
                 </p>
               </div>
             </div>
@@ -718,13 +718,13 @@ export default function App() {
       )}
 
       {isLocalMode && (
-        <div className="bg-indigo-50 border-b border-indigo-100/60 py-3 px-6 shadow-2xs">
+        <div className="bg-indigo-950/40 border-b border-indigo-900/30 py-3 px-6 shadow-2xs">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2.5 text-indigo-800">
-              <WifiOff className="w-4.5 h-4.5 text-indigo-600" />
+            <div className="flex items-center gap-2.5 text-indigo-300">
+              <WifiOff className="w-4.5 h-4.5 text-indigo-400" />
               <div>
-                <span className="font-bold text-indigo-950">Running in Local Sandbox Mode.</span>
-                <span className="text-indigo-700 font-medium ml-1">Your changes are preserved in your local browser cache. Connect to Firebase for team synchronization.</span>
+                <span className="font-bold text-indigo-100">Running in Local Sandbox Mode.</span>
+                <span className="text-indigo-400 font-medium ml-1">Your changes are preserved in your local browser cache. Connect to Firebase for team synchronization.</span>
               </div>
             </div>
             <button
@@ -744,18 +744,18 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         
         {/* Filter, Search, and Tab Switch Actions */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-2xs space-y-4">
+        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-4 shadow-sm space-y-4 shadow-black/20">
           <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
             
             {/* Left: View Switching Tabs */}
-            <div className="flex items-center bg-slate-100 p-1 rounded-xl self-start">
+            <div className="flex items-center bg-slate-950 p-1 rounded-xl self-start">
               <button
                 id="tab-view-board"
                 onClick={() => setSelectedView('board')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-2 ${
                   selectedView === 'board'
-                    ? 'bg-white text-slate-950 shadow-sm'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-slate-900 text-slate-100 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 <SlidersHorizontal className="w-3.5 h-3.5" />
@@ -766,8 +766,8 @@ export default function App() {
                 onClick={() => setSelectedView('grid')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-2 ${
                   selectedView === 'grid'
-                    ? 'bg-white text-slate-950 shadow-sm'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-slate-900 text-slate-100 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 <Grid className="w-3.5 h-3.5" />
@@ -778,8 +778,8 @@ export default function App() {
                 onClick={() => setSelectedView('stats')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-2 ${
                   selectedView === 'stats'
-                    ? 'bg-white text-slate-950 shadow-sm'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-slate-900 text-slate-100 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 <BarChart3 className="w-3.5 h-3.5" />
@@ -791,11 +791,11 @@ export default function App() {
                   onClick={() => setSelectedView('admin' as any)}
                   className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-2 ${
                     selectedView === 'admin'
-                      ? 'bg-white text-indigo-700 shadow-sm ring-1 ring-indigo-100/50 font-black'
-                      : 'text-slate-500 hover:text-slate-900'
+                      ? 'bg-slate-900 text-indigo-400 shadow-sm ring-1 ring-indigo-950/50 font-black'
+                      : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  <Shield className="w-3.5 h-3.5 text-indigo-600" />
+                  <Shield className="w-3.5 h-3.5 text-indigo-400" />
                   Admin Console
                 </button>
               )}
@@ -806,9 +806,9 @@ export default function App() {
               <button
                 id="btn-toggle-db"
                 onClick={() => setShowDbManager(!showDbManager)}
-                className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl transition-all shadow-2xs cursor-pointer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border border-slate-800 hover:bg-slate-850 rounded-xl transition-all shadow-2xs cursor-pointer"
               >
-                <Settings2 className="w-4 h-4 text-slate-400" />
+                <Settings2 className="w-4 h-4 text-slate-500" />
                 Manage Team & Categories
                 {showDbManager ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
               </button>
@@ -816,7 +816,7 @@ export default function App() {
               <button
                 id="btn-reset-data"
                 onClick={handleResetData}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-500 hover:text-rose-600 bg-white border border-slate-200 hover:border-rose-200 hover:bg-rose-50 rounded-xl transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-400 hover:text-rose-400 bg-slate-900 border border-slate-800 hover:border-rose-900 hover:bg-rose-950/40 rounded-xl transition-all cursor-pointer"
                 title="Reset Database to Default Template"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -843,18 +843,18 @@ export default function App() {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25 }}
-                className="overflow-hidden border-t border-slate-100 pt-4"
+                className="overflow-hidden border-t border-slate-800 pt-4"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50/50 rounded-xl border border-slate-200/80 p-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950/50 rounded-xl border border-slate-800 p-5">
                   
                   {/* Category Directory Admin */}
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-xs font-bold text-slate-900 flex items-center gap-2 uppercase tracking-wider">
-                        <Tag className="w-3.5 h-3.5 text-blue-600" />
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-slate-100 flex items-center gap-2 uppercase tracking-wider">
+                        <Tag className="w-3.5 h-3.5 text-indigo-400" />
                         Categories Database
                       </span>
-                      <span className="text-3xs font-bold bg-slate-200/80 px-2 py-0.5 rounded-full text-slate-600">
+                      <span className="text-3xs font-bold bg-slate-900 px-2 py-0.5 rounded-full text-slate-400 border border-slate-800">
                         {categories.length} Registered
                       </span>
                     </div>
@@ -866,13 +866,13 @@ export default function App() {
                         placeholder="New Category Name..."
                         value={catNameInput}
                         onChange={(e) => setCatNameInput(e.target.value)}
-                        className="flex-1 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        className="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder:text-slate-500"
                       />
                       <input
                         type="color"
                         value={catColorInput}
                         onChange={(e) => setCatColorInput(e.target.value)}
-                        className="w-8 h-8 rounded-lg border border-slate-200 cursor-pointer shrink-0"
+                        className="w-8 h-8 rounded-lg border border-slate-800 cursor-pointer shrink-0 bg-slate-900"
                         title="Pick Category Badge Color"
                       />
                       <button
@@ -883,7 +883,7 @@ export default function App() {
                           }
                         }}
                         disabled={!catNameInput.trim()}
-                        className="px-3 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
+                        className="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-800 disabled:text-slate-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
                       >
                         <FolderPlus className="w-3.5 h-3.5" />
                         Add
@@ -893,14 +893,14 @@ export default function App() {
                     {/* Active Categories List */}
                     <div className="max-h-[160px] overflow-y-auto space-y-1.5 pr-1 scrollbar-thin">
                       {categories.map((cat) => (
-                        <div key={cat.id} className="flex items-center justify-between bg-white px-3 py-2 rounded-lg border border-slate-200">
-                          <span className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                        <div key={cat.id} className="flex items-center justify-between bg-slate-900 px-3 py-2 rounded-lg border border-slate-800">
+                          <span className="flex items-center gap-2 text-xs font-medium text-slate-300">
                             <span className="w-2.5 h-2.5 rounded-full shadow-xs" style={{ backgroundColor: cat.color }} />
                             {cat.name}
                           </span>
                           <button
                             onClick={() => handleDeleteCategory(cat.id)}
-                            className="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-all cursor-pointer"
+                            className="p-1 text-slate-450 hover:text-rose-400 hover:bg-rose-950/40 rounded-md transition-all cursor-pointer"
                             title="Delete Category (Reassign tasks to uncategorized)"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -912,12 +912,12 @@ export default function App() {
 
                   {/* Assignee Directory Admin */}
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-xs font-bold text-slate-900 flex items-center gap-2 uppercase tracking-wider">
-                        <Users className="w-3.5 h-3.5 text-blue-600" />
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-slate-100 flex items-center gap-2 uppercase tracking-wider">
+                        <Users className="w-3.5 h-3.5 text-indigo-400" />
                         Assignee Directory
                       </span>
-                      <span className="text-3xs font-bold bg-slate-200/80 px-2 py-0.5 rounded-full text-slate-600">
+                      <span className="text-3xs font-bold bg-slate-900 px-2 py-0.5 rounded-full text-slate-400 border border-slate-800">
                         {assignees.length} Active Members
                       </span>
                     </div>
@@ -930,7 +930,7 @@ export default function App() {
                           placeholder="Individual Name..."
                           value={assNameInput}
                           onChange={(e) => setAssNameInput(e.target.value)}
-                          className="flex-1 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          className="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder:text-slate-500"
                         />
                         <button
                           onClick={() => {
@@ -941,7 +941,7 @@ export default function App() {
                             }
                           }}
                           disabled={!assNameInput.trim()}
-                          className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
+                          className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-800 disabled:text-slate-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
                         >
                           <UserPlus className="w-3.5 h-3.5" />
                           Register
@@ -952,26 +952,26 @@ export default function App() {
                         placeholder="Email Address (Optional)..."
                         value={assEmailInput}
                         onChange={(e) => setAssEmailInput(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none"
+                        className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none placeholder:text-slate-500"
                       />
                     </div>
 
                     {/* Active Assignee List */}
                     <div className="max-h-[140px] overflow-y-auto space-y-1.5 pr-1 scrollbar-thin">
                       {assignees.map((ass) => (
-                        <div key={ass.id} className="flex items-center justify-between bg-white px-3 py-1.5 rounded-lg border border-slate-200">
-                          <span className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                        <div key={ass.id} className="flex items-center justify-between bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+                          <span className="flex items-center gap-2 text-xs font-medium text-slate-350">
                             <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black text-white" style={{ backgroundColor: ass.avatarColor }}>
                               {ass.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase()}
                             </span>
                             <div>
-                              <p className="font-bold text-slate-800 leading-none">{ass.name}</p>
-                              {ass.email && <p className="text-[10px] text-slate-400 leading-none mt-0.5">{ass.email}</p>}
+                              <p className="font-bold text-slate-200 leading-none">{ass.name}</p>
+                              {ass.email && <p className="text-[10px] text-slate-500 leading-none mt-0.5">{ass.email}</p>}
                             </div>
                           </span>
                           <button
                             onClick={() => handleDeleteAssignee(ass.id)}
-                            className="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-all cursor-pointer"
+                            className="p-1 text-slate-450 hover:text-rose-400 hover:bg-rose-950/40 rounded-md transition-all cursor-pointer"
                             title="Delete Assignee (Reassign tasks to unassigned)"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -987,7 +987,7 @@ export default function App() {
           </AnimatePresence>
 
           {/* Filtering controls bar */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 border-t border-slate-100 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 border-t border-slate-850 pt-4">
             
             {/* Search Input */}
             <div className="relative">
@@ -999,7 +999,7 @@ export default function App() {
                 placeholder="Search tasks..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white transition-all text-slate-800 placeholder:text-slate-400"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all text-slate-200 placeholder:text-slate-500"
               />
             </div>
 
@@ -1008,7 +1008,7 @@ export default function App() {
               <select
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white transition-all text-slate-700"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all text-slate-300"
               >
                 <option value="all">Category: All</option>
                 {categories.map((c) => (
@@ -1024,7 +1024,7 @@ export default function App() {
               <select
                 value={filterAssignee}
                 onChange={(e) => setFilterAssignee(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white transition-all text-slate-700"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all text-slate-300"
               >
                 <option value="all">Assignee: All</option>
                 {assignees.map((a) => (
@@ -1040,7 +1040,7 @@ export default function App() {
               <select
                 value={filterPriority}
                 onChange={(e) => setFilterPriority(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white transition-all text-slate-700"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all text-slate-300"
               >
                 <option value="all">Priority: All</option>
                 <option value="low">Low Priority</option>
@@ -1076,10 +1076,10 @@ export default function App() {
             {selectedView === 'grid' && (
               <div>
                 {filteredTasks.length === 0 ? (
-                  <div className="bg-white border border-slate-100 rounded-3xl py-16 px-4 text-center max-w-md mx-auto shadow-sm">
-                    <ListTodo className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                    <h3 className="text-sm font-bold text-slate-800">No tasks match your filters</h3>
-                    <p className="text-xs text-slate-400 mt-1">Try clearing filters or search queries, or make a new task!</p>
+                  <div className="bg-slate-900 border border-slate-800 rounded-3xl py-16 px-4 text-center max-w-md mx-auto shadow-sm">
+                    <ListTodo className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+                    <h3 className="text-sm font-bold text-slate-200">No tasks match your filters</h3>
+                    <p className="text-xs text-slate-500 mt-1">Try clearing filters or search queries, or make a new task!</p>
                     <button
                       onClick={() => handleAddTaskWithStatus('todo')}
                       className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-colors cursor-pointer"

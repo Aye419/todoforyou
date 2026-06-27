@@ -115,6 +115,13 @@ export default function TaskCard({
           {task.title}
         </h3>
 
+        {task.ownerEmail && (
+          <div className="text-[10px] text-slate-400 mb-2 flex items-center gap-1 font-medium bg-slate-50 border border-slate-100/50 rounded-md px-1.5 py-0.5 w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+            Created by: <span className="font-semibold text-slate-600">{task.ownerEmail}</span>
+          </div>
+        )}
+
         {/* Task Description */}
         <p className={`text-sm text-slate-600 mb-4 line-clamp-2 leading-relaxed ${task.status === 'completed' ? 'text-slate-400' : ''}`}>
           {task.description || 'No description provided.'}

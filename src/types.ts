@@ -1,5 +1,14 @@
 export type TaskStatus = 'todo' | 'in_progress' | 'completed';
 export type TaskPriority = 'low' | 'medium' | 'high';
+export type UserRole = 'user' | 'admin';
+
+export interface UserProfile {
+  uid: string;
+  email: string;
+  name: string;
+  role: UserRole;
+  createdAt: string;
+}
 
 export interface Category {
   id: string;
@@ -27,4 +36,7 @@ export interface Task {
   actualStart?: string; // Set when status changes to 'in_progress'
   completedAt?: string; // Set when status changes to 'completed'
   createdAt: string;
+  ownerId?: string;      // Associated user ID who created the task
+  ownerEmail?: string;   // Creator's email for visualization
 }
+

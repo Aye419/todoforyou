@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role status",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique user ID" },
+        "email": { "type": "string", "description": "Email of the user" },
+        "name": { "type": "string", "description": "Display name" },
+        "role": { "type": "string", "enum": ["user", "admin"], "description": "Access control role" },
+        "createdAt": { "type": "string", "description": "Timestamp of profile creation" }
+      },
+      "required": ["uid", "email", "name", "role", "createdAt"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "A classification category for tasks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique category identifier" },
+        "name": { "type": "string", "description": "Display name of the category" },
+        "color": { "type": "string", "description": "Hex color code" }
+      },
+      "required": ["id", "name", "color"]
+    },
+    "Assignee": {
+      "title": "Assignee",
+      "description": "A team member assigned to tasks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique assignee identifier" },
+        "name": { "type": "string", "description": "Name of the assignee" },
+        "avatarColor": { "type": "string", "description": "Aesthetic color code for avatar display" },
+        "email": { "type": "string", "description": "Email address of the assignee" }
+      },
+      "required": ["id", "name", "avatarColor"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "A task card with timing and assignee tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique task identifier" },
+        "title": { "type": "string", "description": "Summary title of the task" },
+        "description": { "type": "string", "description": "Detailed notes on requirements/deliverables" },
+        "categoryId": { "type": "string", "description": "Associated category ID" },
+        "assigneeId": { "type": "string", "description": "Associated assignee ID" },
+        "status": { "type": "string", "enum": ["todo", "in_progress", "completed"], "description": "Current workflow status" },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"], "description": "Urgency priority level" },
+        "plannedStart": { "type": "string", "description": "Planned start datetime" },
+        "plannedEnd": { "type": "string", "description": "Planned end datetime" },
+        "actualStart": { "type": "string", "description": "Actual start datetime" },
+        "completedAt": { "type": "string", "description": "Actual completion datetime" },
+        "createdAt": { "type": "string", "description": "Timestamp of task creation" },
+        "ownerId": { "type": "string", "description": "Associated user ID who created the task" },
+        "ownerEmail": { "type": "string", "description": "Creator's email for visualization" }
+      },
+      "required": ["id", "title", "categoryId", "assigneeId", "status", "priority", "plannedStart", "plannedEnd", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "#/entities/UserProfile",
+      "description": "Profiles of registered users containing authentication and authorization claims"
+    },
+    "categories/{categoryId}": {
+      "schema": "#/entities/Category",
+      "description": "List of available task categories"
+    },
+    "assignees/{assigneeId}": {
+      "schema": "#/entities/Assignee",
+      "description": "List of available team assignees"
+    },
+    "tasks/{taskId}": {
+      "schema": "#/entities/Task",
+      "description": "Tasks stored on the project board"
+    }
+  }
+}
